@@ -1,0 +1,137 @@
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --bg:        #2a0810;
+  --bg-deep:   #1a040a;
+  --bg-card:   rgba(58, 10, 20, 0.75);
+  --gold:      #d4af70;
+  --gold-light:#ecdca8;
+  --gold-dim:  rgba(212, 175, 112, 0.22);
+  --cream:     #f5efe0;
+  --muted:     rgba(245, 239, 224, 0.58);
+  --border:    rgba(212, 175, 112, 0.30);
+  --border-hi: rgba(212, 175, 112, 0.65);
+  --surface:   rgba(255, 255, 255, 0.04);
+
+  --font-script:  'Luxurious Script', cursive;
+  --font-serif:   'Cormorant Garamond', serif;
+  --font-display: 'Cinzel', serif;
+  --font-sans:    'Lato', sans-serif;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep);
+  color: var(--cream);
+  min-height: 100vh;
+  /* Subtle damask-inspired repeating diamond lattice */
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(212,175,112,0.04) 38px,
+      rgba(212,175,112,0.04) 40px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(212,175,112,0.04) 38px,
+      rgba(212,175,112,0.04) 40px
+    );
+}
+
+/* ─── Page wrapper ──────────────────────────────────────────────────────── */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ─── Section spacing ───────────────────────────────────────────────────── */
+.section {
+  padding: 5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  background: rgba(22, 5, 12, 0.85);
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Divider ornament ──────────────────────────────────────────────────── */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 70px;
+  background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.ornament-divider::after {
+  background: linear-gradient(to left, transparent, var(--gold));
+}
+
+/* ─── Scroll-reveal animation ───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.35s; }
+.reveal-delay-4 { transition-delay: 0.5s; }
+
+/* ─── Gold shimmer keyframe ─────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes float-down {
+  from { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.7; }
+  to   { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(212,175,112,0.15); }
+  50%       { box-shadow: 0 0 24px rgba(212,175,112,0.40); }
+}
+
+@media (max-width: 680px) {
+  .section { padding: 4rem 1.5rem; }
+}
