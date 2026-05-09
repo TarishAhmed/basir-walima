@@ -10,7 +10,7 @@ const { elRef, revealed } = useReveal()
 
     <div class="details-grid">
       <div class="detail-card reveal reveal-delay-1" :class="{ 'is-visible': revealed }">
-        <span class="detail-icon">📅</span>
+        <span class="detail-icon">🗓️</span>
         <h3 class="detail-label">Date</h3>
         <p class="detail-value">Thursday, June 18, 2026</p>
       </div>
@@ -22,7 +22,8 @@ const { elRef, revealed } = useReveal()
       <div class="detail-card reveal reveal-delay-3" :class="{ 'is-visible': revealed }">
         <span class="detail-icon">📍</span>
         <h3 class="detail-label">Venue</h3>
-        <p class="detail-value">Janakiram Auditorium<br><span class="detail-sub">Opp: SMTHS School, Chelakkara, Kerala</span></p>
+        <p class="detail-value">Janakiram Auditorium<br><span class="detail-sub">Opp: SMTHS School, Chelakkara,
+            Kerala</span></p>
       </div>
     </div>
   </section>
@@ -56,7 +57,7 @@ const { elRef, revealed } = useReveal()
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(58,10,20,0.55);
+  background: rgba(58, 10, 20, 0.55);
   border: 1px solid var(--border);
   padding: 1.75rem 1.5rem;
   flex: 1;
@@ -67,7 +68,7 @@ const { elRef, revealed } = useReveal()
 
 .detail-card:hover {
   border-color: var(--border-hi);
-  box-shadow: 0 0 20px rgba(212,175,112,0.18);
+  box-shadow: 0 0 20px rgba(212, 175, 112, 0.18);
   transform: translateY(-4px);
 }
 
